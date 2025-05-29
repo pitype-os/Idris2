@@ -2,13 +2,16 @@ include ../config.mk
 
 .PHONY: build build-c build-refc build-chez
 
-build: build-c build-refc build-chez
+build: build-c build-refc build-urefc build-chez
 
 build-c:
 	@${MAKE} -C c
 
 build-refc:
 	@${MAKE} -C refc
+
+build-urefc:
+	@${MAKE} -C urefc
 
 build-chez:
 	@${MAKE} -C chez
@@ -28,7 +31,7 @@ clean-chez:
 
 .PHONY: install install-docs install-racket install-gambit install-js install-c install-refc install-chez
 
-install: install-docs install-racket install-gambit install-js install-c install-refc install-chez
+install: install-docs install-racket install-gambit install-js install-c install-refc install-urefc install-chez
 
 install-docs:
 	mkdir -p ${DESTDIR}${PREFIX}/${NAME_VERSION}/support/docs
@@ -50,6 +53,9 @@ install-c:
 	@${MAKE} -C c install
 
 install-refc:
+	@${MAKE} -C refc install
+
+install-urefc:
 	@${MAKE} -C refc install
 
 install-chez:
