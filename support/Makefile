@@ -1,6 +1,6 @@
 include ../config.mk
 
-.PHONY: build build-c build-refc build-chez
+.PHONY: build build-c build-refc build-urefc build-chez
 
 build: build-c build-refc build-urefc build-chez
 
@@ -16,7 +16,7 @@ build-urefc:
 build-chez:
 	@${MAKE} -C chez
 
-.PHONY: clean clean-c clean-refc clean-chez
+.PHONY: clean clean-c clean-refc clean-urefc clean-chez
 
 clean: clean-c clean-refc clean-chez
 
@@ -29,7 +29,7 @@ clean-refc:
 clean-chez:
 	@${MAKE} -C chez clean
 
-.PHONY: install install-docs install-racket install-gambit install-js install-c install-refc install-chez
+.PHONY: install install-docs install-racket install-gambit install-js install-c install-refc install-urefc install-chez
 
 install: install-docs install-racket install-gambit install-js install-c install-refc install-urefc install-chez
 
