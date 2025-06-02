@@ -1024,5 +1024,5 @@ executeExpr c s tmpDir tm = do
      coreLift_ $ system (tmpDir </> outfile)
 
 export
-codegenRefC : Codegen
-codegenRefC = MkCG (compileExpr ANF) executeExpr Nothing Nothing
+codegenURefC : Codegen
+codegenURefC = MkCG (compileExpr ANF) executeExpr Nothing Nothing

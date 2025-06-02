@@ -883,7 +883,8 @@ TTC CG where
   toBuf Node = tag 5
   toBuf Javascript = tag 6
   toBuf RefC = tag 7
-  toBuf VMCodeInterp = tag 8
+  toBuf URefC = tag 8
+  toBuf VMCodeInterp = tag 9
 
   fromBuf
       = case !getTag of
@@ -896,7 +897,8 @@ TTC CG where
              5 => pure Node
              6 => pure Javascript
              7 => pure RefC
-             8 => pure VMCodeInterp
+             8 => pure URefC
+             9 => pure VMCodeInterp
              _ => corrupt "CG"
 
 export
