@@ -2190,6 +2190,7 @@ knownCommands =
       , "                        chez"
       , "                        racket"
       , "                        refc"
+      , "                        urefc"
       , "                        node"
       , ""
       , "  showimplicits       enable displaying implicit arguments as part of the"
