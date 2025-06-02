@@ -2,7 +2,7 @@ include ../../config.mk
 
 CC := riscv64-unknown-elf-gcc
 
-TARGET = libuidris2_refc
+TARGET = libidris2_urefc
 
 LIBTARGET = $(TARGET).a
 
