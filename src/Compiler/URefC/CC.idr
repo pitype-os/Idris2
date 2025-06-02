@@ -69,20 +69,18 @@ compileCObjectFile {asLibrary} sourceFile objectFile =
      cFlags <- coreLift findCFLAGS
      cppFlags <- coreLift findCPPFLAGS
 
-     refcDir <- findDataFile "urefc"
-     cDir <- findDataFile "c"
+     urefcDir <- findDataFile "urefc"
 
      let libraryFlag = if asLibrary then ["-fpic"] else []
 
      let runccobj = (escapeCmd $
          [cc, "-Werror", "-c"] ++ libraryFlag ++ [sourceFile,
               "-o", objectFile,
-              "-I" ++ refcDir,
-              "-I" ++ cDir])
+              "-I" ++ urefcDir])
               ++ " " ++ cppFlags ++ " " ++ cFlags
 
 
-     log "compiler.refc.cc" 10 runccobj
+     log "compiler.urefc.cc" 10 runccobj
      0 <- coreLift $ system runccobj
        | _ => pure Nothing
 
@@ -101,8 +99,8 @@ compileCFile {asShared} objectFile outFile =
      ldLibs <- coreLift findLDLIBS
 
      dirs <- getDirs
-     refcDir <- findDataFile "refc"
-     supportFile <- findLibraryFile "libidris2_support.a"
+     urefcDir <- findDataFile "urefc"
+     supportFile <- findLibraryFile "libuidris2_support.a"
 
      let sharedFlag = if asShared then ["-shared"] else []
 
@@ -110,10 +108,9 @@ compileCFile {asShared} objectFile outFile =
          [cc, "-Werror"] ++ sharedFlag ++ [objectFile,
               "-o", outFile,
               supportFile,
-              "-lidris2_refc",
-              "-L" ++ refcDir
-              ] ++ clibdirs (lib_dirs dirs) ++ [
-              "-lgmp", "-lm"])
+              "-luidris2_refc",
+              "-L" ++ urefcDir
+              ] ++ clibdirs (lib_dirs dirs))
               ++ " " ++ (unwords [cFlags, ldFlags, ldLibs])
 
      log "compiler.refc.cc" 10 runcc

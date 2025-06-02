@@ -1006,9 +1006,7 @@ compileExpr ANF c s _ outputDir tm outfile =
      let defs = anf cdata
 
      generateCSourceFile defs outn
-     Just _ <- compileCObjectFile outn outobj
-       | Nothing => pure Nothing
-     compileCFile outobj outexec
+     compileCObjectFile outn outobj
 
 compileExpr _ _ _ _ _ _ _ = pure Nothing
 
