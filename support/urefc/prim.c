@@ -134,24 +134,7 @@ SIZEOF(Char)
 void idris2_primitive_memset_ ## TYPE (TYPE *p, ptrdiff_t off, size_t n, TYPE x) \
 { \
   p += off;                                                                  \
-  if (x == 0)                                                                \
-    memset(p, 0, n * sizeof(TYPE));                                          \
-  else if (sizeof(TYPE) == sizeof(int)*2) {                                  \
-    int *q = (int *)p;                                                       \
-    const int *r = (const int *)(void *)&x;                                  \
-    while (n>0) {                                                            \
-      q[0] = r[0];                                                           \
-      q[1] = r[1];                                                           \
-      q += 2;                                                                \
-      --n;                                                                   \
-    }                                                                        \
-  }                                                                          \
-  else {                                                                     \
-    while (n>0) {                                                            \
-      *p++ = x;                                                              \
-      --n;                                                                   \
-    }                                                                        \
-  }                                                                          \
+  *p=x;                                                                      \
 }
 
 MEMSET(Bits8)
@@ -183,7 +166,7 @@ Value *idris2_Prelude_IO_prim__onCollect(Value *_erased, Value *_anyPtr,
   retVal->onCollectFct = (Value_Closure *)_freeingFunction;
   return (Value *)retVal;
 }
- 
+
 Value *idris2_Prelude_IO_prim__onCollectAny(Value *_anyPtr,
                                             Value *_freeingFunction,
                                             Value *_world) {
