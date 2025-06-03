@@ -955,10 +955,6 @@ footer = do
       // main function
       void main()
       {
-          \{ ifThenElse (contains "idris_support.h" !(get HeaderFiles))
-                        "idris2_setArgs(argc, argv);"
-                        ""
-          }
           Value *mainExprVal = __mainExpression_0();
           idris2_trampoline(mainExprVal);
       }
