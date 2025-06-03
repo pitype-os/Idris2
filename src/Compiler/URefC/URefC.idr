@@ -961,7 +961,6 @@ footer = do
           }
           Value *mainExprVal = __mainExpression_0();
           idris2_trampoline(mainExprVal);
-          return 0; // bye bye
       }
       """
 

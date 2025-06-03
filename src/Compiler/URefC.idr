@@ -1,4 +1,4 @@
-module Compiler.RefC
+module Compiler.URefC
 
 import public Compiler.URefC.CC
-import public Compiler.URefC.RefC
+import public Compiler.URefC.URefC
