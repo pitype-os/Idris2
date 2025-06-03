@@ -100,7 +100,7 @@ compileCFile {asShared} objectFile outFile =
 
      dirs <- getDirs
      urefcDir <- findDataFile "urefc"
-     supportFile <- findLibraryFile "libuidris2_support.a"
+     supportFile <- findLibraryFile "libidris2_support.a"
 
      let sharedFlag = if asShared then ["-shared"] else []
 
@@ -108,7 +108,7 @@ compileCFile {asShared} objectFile outFile =
          [cc, "-Werror"] ++ sharedFlag ++ [objectFile,
               "-o", outFile,
               supportFile,
-              "-luidris2_refc",
+              "-lidris2_urefc",
               "-L" ++ urefcDir
               ] ++ clibdirs (lib_dirs dirs))
               ++ " " ++ (unwords [cFlags, ldFlags, ldLibs])

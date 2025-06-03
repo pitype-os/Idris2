@@ -56,7 +56,7 @@ install-refc:
 	@${MAKE} -C refc install
 
 install-urefc:
-	@${MAKE} -C refc install
+	@${MAKE} -C urefc install
 
 install-chez:
 	@${MAKE} -C chez install
