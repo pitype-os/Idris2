@@ -64,6 +64,8 @@ knownTopics = [
     ("compiler.newtype.world", Just "Inlining matches on newtypes."),
     ("compiler.refc", Nothing),
     ("compiler.refc.cc", Nothing),
+    ("compiler.urefc", Nothing),
+    ("compiler.urefc.cc", Nothing),
     ("compiler.scheme.chez", Nothing),
     ("coverage", Nothing),
     ("coverage.empty", Nothing),

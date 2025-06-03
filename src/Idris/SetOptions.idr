@@ -198,7 +198,7 @@ visiblePackages dir = map (MkQualifiedPkgDir dir) <$> filter viable <$> getPacka
         notHidden = not . isPrefixOf "." . pkgName
 
         notDenylisted : PkgDir -> Bool
-        notDenylisted = not . flip elem (the (List String) ["include", "lib", "support", "refc"]) . pkgName
+        notDenylisted = not . flip elem (the (List String) ["include", "lib", "support", "refc", "urefc"]) . pkgName
 
         viable : PkgDir -> Bool
         viable p = notHidden p && notDenylisted p
