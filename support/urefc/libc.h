@@ -1,6 +1,7 @@
-#pragma once 
+#pragma once
 
 #include <stddef.h>
+#include <stdint-gcc.h>
 
 int abs(int j);
 int isdigit(int c);
