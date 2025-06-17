@@ -2,9 +2,11 @@
 
 // IORef
 
-Value *newIORef(Value *, Value *, Value *);
-Value *readIORef(Value *, Value *, Value *);
-Value *writeIORef(Value *, Value *, Value *, Value *);
+Value *idris2_Data_IORef_prim__newIORef(Value *, Value *, Value *);
+Value *idris2_Data_IORef_prim__writeIORef(Value *, Value *, Value *, Value *);
+
+#define idris2_Data_IORef_prim__readIORef(erased, ioref, world)                \
+  (idris2_newReference(((Value_IORef *)ioref)->v))
 
 // Sys
 
