@@ -74,7 +74,7 @@ compileCObjectFile {asLibrary} sourceFile objectFile =
      let libraryFlag = if asLibrary then ["-fpic"] else []
 
      let runccobj = (escapeCmd $
-         [cc, "-c"] ++ libraryFlag ++ [sourceFile,
+         [cc, "-Wno-implicit-function-declaration", "-Wno-int-conversion", "-c"] ++ libraryFlag ++ [sourceFile,
               "-o", objectFile,
               "-I" ++ urefcDir])
               ++ " " ++ cppFlags ++ " " ++ cFlags
